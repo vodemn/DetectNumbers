@@ -46,11 +46,6 @@ class Canvas: UIView {
         setNeedsDisplay()
     }
     
-    func undo() {
-        lines.removeLast()
-        setNeedsDisplay()
-    }
-    
     func clear() {
         lines.removeAll()
         setNeedsDisplay()

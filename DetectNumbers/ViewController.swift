@@ -11,17 +11,17 @@ class ViewController: UIViewController {
     
     let canvas = Canvas()
         
-    let clearButton: UIButton = {
-        let button  = UIButton(type: .system)
-        button.backgroundColor = UIColor.systemBlue
-        
-        let image = UIImage(systemName: "trash")?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        button.setImage(image, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
+    let clearButton: ClearButton = {
+        let button  = ClearButton()
+        button.addTarget(self, action: #selector(clear), for: .touchDown)
         button.widthAnchor.constraint(equalToConstant: 48).isActive = true
         return button
     }()
+    
+    @objc fileprivate func clear(_ sender: UIButton!) {
+        canvas.clear()
+        sender.isUserInteractionEnabled = false
+    }
     
     let analyzeButton: UIButton = {
         let button  = UIButton(type: .roundedRect)
