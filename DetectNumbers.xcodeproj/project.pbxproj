@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF0A015628CDED81008F61EF /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A015528CDED81008F61EF /* TextButton.swift */; };
+		EF0A015928CDF497008F61EF /* CanvasState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A015828CDF497008F61EF /* CanvasState.swift */; };
 		EF408C5528C9363F0008ABFC /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF408C5428C9363F0008ABFC /* RxSwift.xcframework */; };
 		EF408C5628C9363F0008ABFC /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF408C5428C9363F0008ABFC /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF408C5928C93ACE0008ABFC /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF408C5828C93ACE0008ABFC /* ClearButton.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		EF0A015528CDED81008F61EF /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
+		EF0A015828CDF497008F61EF /* CanvasState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasState.swift; sourceTree = "<group>"; };
 		EF408C5428C9363F0008ABFC /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../../../Downloads/RxSwift/RxSwift.xcframework; sourceTree = "<group>"; };
 		EF408C5828C93ACE0008ABFC /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		EFA3368628AC0DD000276024 /* DetectNumbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectNumbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF0A015728CDF483008F61EF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF0A015828CDF497008F61EF /* CanvasState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EF408C5328C9363F0008ABFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 				EFA3368B28AC0DD000276024 /* SceneDelegate.swift */,
 				EFA3368D28AC0DD000276024 /* ViewController.swift */,
 				EFE670FE28C9D5CC008D7438 /* Constants.swift */,
+				EF0A015728CDF483008F61EF /* Models */,
 				EFA3369D28AC159300276024 /* Views */,
 				EFA3368F28AC0DD000276024 /* Main.storyboard */,
 				EFA3369228AC0DD200276024 /* Assets.xcassets */,
@@ -187,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFA3368E28AC0DD000276024 /* ViewController.swift in Sources */,
+				EF0A015928CDF497008F61EF /* CanvasState.swift in Sources */,
 				EFA3368A28AC0DD000276024 /* AppDelegate.swift in Sources */,
 				EF0A015628CDED81008F61EF /* TextButton.swift in Sources */,
 				EF408C5928C93ACE0008ABFC /* ClearButton.swift in Sources */,

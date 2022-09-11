@@ -6,16 +6,25 @@
 //
 
 import Foundation
+import RxSwift
 import UIKit
 
+typealias CanvasController = BehaviorSubject<CanvasState>
+
 class Canvas: UIView {
+    let controller: CanvasController
     var lines = [[CGPoint]]()
     
-    public convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    init(controller: CanvasController) {
+        self.controller = controller
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         backgroundColor = .black
         clipsToBounds = true
         layer.cornerRadius = kCornerRadius
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func draw(_ rect: CGRect) {
@@ -42,6 +51,7 @@ class Canvas: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         lines.append([CGPoint]())
+        controller.onNext(CanvasState(hasLines: true))
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,6 +65,7 @@ class Canvas: UIView {
     
     func clear() {
         lines.removeAll()
+        controller.onNext(CanvasState(hasLines: false))
         setNeedsDisplay()
     }
 }

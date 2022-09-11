@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
     
-    let canvas: Canvas = Canvas()
+    let canvasController = CanvasController(value: CanvasState())
+    lazy var canvas: Canvas = Canvas(controller: canvasController)
+    let disposer = DisposeBag()
     
     let clearButton: ClearButton = {
         let button  = ClearButton()
@@ -20,7 +23,6 @@ class ViewController: UIViewController {
     
     @objc fileprivate func clear(_ sender: UIButton!) {
         canvas.clear()
-        sender.isUserInteractionEnabled = false
     }
     
     let analyzeButton: UIButton = TextButton(label: "Analyze")
@@ -48,6 +50,14 @@ class ViewController: UIViewController {
         stretchingView.backgroundColor = UIColor.clear
         return stretchingView
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        canvasController.subscribe(onNext: {state in
+            self.analyzeButton.isUserInteractionEnabled = state.hasLines
+            self.clearButton.isUserInteractionEnabled = state.hasLines
+        }).disposed(by: disposer)
+    }
     
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
