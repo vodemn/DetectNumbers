@@ -37,7 +37,6 @@ class ViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fill
-        stack.autoresizesSubviews = false
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         stack.spacing = 16
@@ -47,8 +46,6 @@ class ViewController: UIViewController {
     let actionsLayout: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .fillProportionally
-        stack.preservesSuperviewLayoutMargins = true
         stack.spacing = 16
         stack.heightAnchor.constraint(equalToConstant: 48).isActive = true
         return stack
