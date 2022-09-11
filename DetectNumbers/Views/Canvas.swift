@@ -11,6 +11,13 @@ import UIKit
 class Canvas: UIView {
     var lines = [[CGPoint]]()
     
+    public convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        backgroundColor = .black
+        clipsToBounds = true
+        layer.cornerRadius = kCornerRadius
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         

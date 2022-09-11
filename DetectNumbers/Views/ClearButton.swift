@@ -11,8 +11,8 @@ import UIKit
 class ClearButton: UIButton {
     public convenience init() {
         self.init(type: .system)
-        backgroundColor = .systemBlue
-        layer.cornerRadius = 16
+        backgroundColor = kPrimaryColor
+        layer.cornerRadius = kCornerRadius
         setImage(
             UIImage(systemName: "trash")?.withTintColor(.white, renderingMode: .alwaysOriginal),
             for: .normal
@@ -22,9 +22,9 @@ class ClearButton: UIButton {
     override open var isUserInteractionEnabled: Bool {
         didSet {
             if isUserInteractionEnabled {
-                backgroundColor = UIColor.systemBlue
+                backgroundColor = kPrimaryColor
             } else {
-                backgroundColor = UIColor.systemGray
+                backgroundColor = kDisabledColor
             }
         }
     }
