@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0A015628CDED81008F61EF /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A015528CDED81008F61EF /* TextButton.swift */; };
 		EF408C5528C9363F0008ABFC /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF408C5428C9363F0008ABFC /* RxSwift.xcframework */; };
 		EF408C5628C9363F0008ABFC /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF408C5428C9363F0008ABFC /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF408C5928C93ACE0008ABFC /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF408C5828C93ACE0008ABFC /* ClearButton.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EF0A015528CDED81008F61EF /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		EF408C5428C9363F0008ABFC /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../../../Downloads/RxSwift/RxSwift.xcframework; sourceTree = "<group>"; };
 		EF408C5828C93ACE0008ABFC /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		EFA3368628AC0DD000276024 /* DetectNumbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectNumbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 			children = (
 				EFA3369E28AC15A300276024 /* Canvas.swift */,
 				EF408C5828C93ACE0008ABFC /* ClearButton.swift */,
+				EF0A015528CDED81008F61EF /* TextButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				EFA3368E28AC0DD000276024 /* ViewController.swift in Sources */,
 				EFA3368A28AC0DD000276024 /* AppDelegate.swift in Sources */,
+				EF0A015628CDED81008F61EF /* TextButton.swift in Sources */,
 				EF408C5928C93ACE0008ABFC /* ClearButton.swift in Sources */,
 				EFA3368C28AC0DD000276024 /* SceneDelegate.swift in Sources */,
 				EFA3369F28AC15A300276024 /* Canvas.swift in Sources */,

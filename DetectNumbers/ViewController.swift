@@ -23,15 +23,7 @@ class ViewController: UIViewController {
         sender.isUserInteractionEnabled = false
     }
     
-    let analyzeButton: UIButton = {
-        let button  = UIButton(type: .roundedRect)
-        button.backgroundColor = UIColor.systemBlue
-        button.layer.cornerRadius = 16
-        button.setTitle("Analyze", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        return button
-    }()
+    let analyzeButton: UIButton = TextButton(label: "Analyze")
     
     let fullLayout: UIStackView = {
         let stack = UIStackView()
