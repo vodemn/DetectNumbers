@@ -5,6 +5,7 @@
 //  Created by Vadim Turko on 8/16/22.
 //
 
+import DetectNumbersCore
 import Foundation
 import RxSwift
 import UIKit
@@ -61,6 +62,14 @@ class Canvas: UIView {
         lines.append(lastLine)
         
         setNeedsDisplay()
+    }
+    
+    func bitmap() -> Matrix {
+        UIGraphicsBeginImageContext(self.frame.size)
+        self.layer.render(in:UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!.pixelDataGrayScale
     }
     
     func clear() {

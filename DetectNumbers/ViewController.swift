@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import DetectNumbersCore
 import RxSwift
 
 class ViewController: UIViewController {
+    
+    let core = DetectNumbersCore()
     
     let canvasController = CanvasController(value: CanvasState())
     lazy var canvas: Canvas = Canvas(controller: canvasController)
@@ -25,7 +28,35 @@ class ViewController: UIViewController {
         canvas.clear()
     }
     
-    let analyzeButton: UIButton = TextButton(label: "Analyze")
+    let analyzeButton: TextButton = {
+        let button = TextButton(label: "Analyze")
+        button.addTarget(self, action: #selector(gitbitmap), for: .touchDown)
+        return button
+    }()
+    
+    @objc fileprivate func gitbitmap(_ sender: UIButton!) {
+        let pixels = canvas.bitmap()
+        //
+        // `Core` needs less resolution, than canvas provides. So we have to determine
+        // the bigget possible size.
+        //
+        // Example:
+        // let canvasSize = (358, 358)
+        // let coreInputSize = (16, 16)
+        // let maxSize = (352, 352)
+        //
+        let maxResultRows: Int = Int(pixels.rows / core.inputSize.0) * core.inputSize.0
+        let rowsOffset = Int((pixels.rows - maxResultRows) / 2)
+        
+        let maxResultColumns: Int = Int(pixels.rows / core.inputSize.1) * core.inputSize.1
+        let columnsOffset = Int((pixels.columns - maxResultColumns) / 2)
+        
+        let cropped = pixels[rowsOffset..<(maxResultRows + rowsOffset)]
+            .transposed()[columnsOffset..<(maxResultColumns + columnsOffset)]
+            .transposed()
+        
+        
+    }
     
     let fullLayout: UIStackView = {
         let stack = UIStackView()
