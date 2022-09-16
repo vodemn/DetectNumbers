@@ -45,17 +45,31 @@ class ViewController: UIViewController {
         // let coreInputSize = (16, 16)
         // let maxSize = (352, 352)
         //
-        let maxResultRows: Int = Int(pixels.rows / core.inputSize.0) * core.inputSize.0
+        let chunkRows = Int(pixels.rows / core.inputSize.0)
+        let maxResultRows: Int = chunkRows * core.inputSize.0
         let rowsOffset = Int((pixels.rows - maxResultRows) / 2)
         
-        let maxResultColumns: Int = Int(pixels.rows / core.inputSize.1) * core.inputSize.1
+        let chunkColumns = Int(pixels.rows / core.inputSize.1)
+        let maxResultColumns: Int = chunkColumns * core.inputSize.1
         let columnsOffset = Int((pixels.columns - maxResultColumns) / 2)
         
         let cropped = pixels[rowsOffset..<(maxResultRows + rowsOffset)]
             .transposed()[columnsOffset..<(maxResultColumns + columnsOffset)]
             .transposed()
         
-        
+        // All fine before compression
+        var compressed: [Double] = []
+        for row in 0..<core.inputSize.0 {
+            let rowsChunkStart = row * core.inputSize.0
+            let uncompressedRow: [Double] = cropped[rowsChunkStart..<(rowsChunkStart + chunkRows)].transposed().values
+            let chunks = uncompressedRow.chunked(into: chunkRows * chunkColumns)
+            
+            for chunk in chunks {
+                let reduced = chunk.reduce(0, +) / Double(chunk.endIndex)
+                compressed.append(reduced)
+            }
+        }
+        print(compressed)
     }
     
     let fullLayout: UIStackView = {
@@ -110,3 +124,10 @@ class ViewController: UIViewController {
     }
 }
 
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
+    }
+}

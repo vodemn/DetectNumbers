@@ -9,27 +9,22 @@ import DetectNumbersCore
 import Foundation
 import UIKit
 
-extension UIImage {
-    var pixelDataGrayScale: Matrix {
-        let bmp = self.cgImage!.dataProvider!.data
-        var data: UnsafePointer<UInt8> = CFDataGetBytePtr(bmp)
-        var r, g, b: UInt8
-        var gs: Double
-        var pixels = [Double]()
-        for _ in 0 ..< Int(self.size.width) {
-            for _ in 0 ..< Int(self.size.height) {
-                r = data.pointee
-                data = data.advanced(by: 1)
-                g = data.pointee
-                data = data.advanced(by: 1)
-                b = data.pointee
-                data = data.advanced(by: 1)
-                //a = data.pointee
-                data = data.advanced(by: 1)
-                gs = (Double(r) + Double(g) + Double(b)) / (3 * 255)
-                pixels.append(gs)
-            }
-        }
-        return Matrix(from: pixels, shape: (Int(self.size.height), Int(self.size.width)))
+extension CGImage {
+    func pixelValues() -> [UInt8]
+    {
+        var pixelValues: [UInt8]
+        var intensities = [UInt8](repeating: 0, count: self.height * self.width)
+        let contextRef = CGContext(
+            data: &intensities,
+            width: self.width,
+            height: self.height,
+            bitsPerComponent: self.bitsPerComponent,
+            bytesPerRow: self.width,
+            space: CGColorSpaceCreateDeviceGray(),
+            bitmapInfo: 0)
+        contextRef?.draw(self, in: CGRect(x: 0.0, y: 0.0, width: CGFloat(self.width), height: CGFloat(self.height)))
+        pixelValues = intensities
+        
+        return pixelValues
     }
 }

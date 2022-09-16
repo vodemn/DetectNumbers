@@ -69,7 +69,8 @@ class Canvas: UIView {
         self.layer.render(in:UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image!.pixelDataGrayScale
+        let normalized: [Double] = image!.cgImage!.pixelValues().map { Double($0 / 255) }
+        return Matrix(from: normalized, shape: (image!.cgImage!.height, image!.cgImage!.width))
     }
     
     func clear() {
