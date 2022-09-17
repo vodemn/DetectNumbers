@@ -34,7 +34,7 @@ class Canvas: UIView {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
         context.setStrokeColor(UIColor.white.cgColor)
-        context.setLineWidth(16)
+        context.setLineWidth(36)
         context.setLineCap(.round)
         
         lines.forEach {

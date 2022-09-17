@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     
     @objc fileprivate func clear(_ sender: UIButton!) {
         canvas.clear()
+        analyzeButton.setTitle("Analyze", for: .normal)
     }
     
     let analyzeButton: TextButton = {
@@ -35,41 +36,13 @@ class ViewController: UIViewController {
     }()
     
     @objc fileprivate func gitbitmap(_ sender: UIButton!) {
-        let pixels = canvas.bitmap()
-        //
-        // `Core` needs less resolution, than canvas provides. So we have to determine
-        // the bigget possible size.
-        //
-        // Example:
-        // let canvasSize = (358, 358)
-        // let coreInputSize = (16, 16)
-        // let maxSize = (352, 352)
-        //
-        let chunkRows = Int(pixels.rows / core.inputSize.0)
-        let maxResultRows: Int = chunkRows * core.inputSize.0
-        let rowsOffset = Int((pixels.rows - maxResultRows) / 2)
+        let compressed = canvas.compress(targetSize: core.inputSize)
+        let result = core.detect(input: compressed)
+        let maxP = result.max()!
+        let detectedNum = result.firstIndex(of: maxP)!
         
-        let chunkColumns = Int(pixels.rows / core.inputSize.1)
-        let maxResultColumns: Int = chunkColumns * core.inputSize.1
-        let columnsOffset = Int((pixels.columns - maxResultColumns) / 2)
-        
-        let cropped = pixels[rowsOffset..<(maxResultRows + rowsOffset)]
-            .transposed()[columnsOffset..<(maxResultColumns + columnsOffset)]
-            .transposed()
-        
-        // All fine before compression
-        var compressed: [Double] = []
-        for row in 0..<core.inputSize.0 {
-            let rowsChunkStart = row * core.inputSize.0
-            let uncompressedRow: [Double] = cropped[rowsChunkStart..<(rowsChunkStart + chunkRows)].transposed().values
-            let chunks = uncompressedRow.chunked(into: chunkRows * chunkColumns)
-            
-            for chunk in chunks {
-                let reduced = chunk.reduce(0, +) / Double(chunk.endIndex)
-                compressed.append(reduced)
-            }
-        }
-        print(compressed)
+        analyzeButton.setTitle("I'm \(Int(maxP * 100))% sure it's \(detectedNum)", for: .normal)
+        analyzeButton.backgroundColor = .systemGreen
     }
     
     let fullLayout: UIStackView = {
