@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     lazy var canvas: Canvas = Canvas(controller: canvasController)
     let disposer = DisposeBag()
     
-    let clearButton: ClearButton = {
+    lazy var clearButton: ClearButton = {
         let button  = ClearButton()
         button.addTarget(self, action: #selector(clear), for: .touchDown)
         button.widthAnchor.constraint(equalToConstant: 48).isActive = true
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         analyzeButton.setTitle("Analyze", for: .normal)
     }
     
-    let analyzeButton: TextButton = {
+    lazy var analyzeButton: TextButton = {
         let button = TextButton(label: "Analyze")
         button.addTarget(self, action: #selector(gitbitmap), for: .touchDown)
         return button
