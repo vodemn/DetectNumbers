@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		EF0A015628CDED81008F61EF /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A015528CDED81008F61EF /* TextButton.swift */; };
 		EF0A015928CDF497008F61EF /* CanvasState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A015828CDF497008F61EF /* CanvasState.swift */; };
-		EF408C5528C9363F0008ABFC /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF408C5428C9363F0008ABFC /* RxSwift.xcframework */; };
-		EF408C5628C9363F0008ABFC /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF408C5428C9363F0008ABFC /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EF2B43572983AE3400DA9369 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2B43562983AE3400DA9369 /* RxSwift.xcframework */; };
+		EF2B43582983AE3400DA9369 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF2B43562983AE3400DA9369 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF408C5928C93ACE0008ABFC /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF408C5828C93ACE0008ABFC /* ClearButton.swift */; };
 		EF4D6CDE28D06BC9008BAE75 /* DetectNumbersCore in Frameworks */ = {isa = PBXBuildFile; productRef = EF4D6CDD28D06BC9008BAE75 /* DetectNumbersCore */; };
 		EF4D6CE328D0B6E5008BAE75 /* ImagePixelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4D6CE228D0B6E5008BAE75 /* ImagePixelData.swift */; };
@@ -26,13 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EF408C5728C9363F0008ABFC /* Embed Frameworks */ = {
+		EF2B43592983AE3400DA9369 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EF408C5628C9363F0008ABFC /* RxSwift.xcframework in Embed Frameworks */,
+				EF2B43582983AE3400DA9369 /* RxSwift.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		EF0A015528CDED81008F61EF /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		EF0A015828CDF497008F61EF /* CanvasState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasState.swift; sourceTree = "<group>"; };
-		EF408C5428C9363F0008ABFC /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../../../Downloads/RxSwift/RxSwift.xcframework; sourceTree = "<group>"; };
+		EF2B43562983AE3400DA9369 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RxSwift.xcframework; sourceTree = "<group>"; };
 		EF408C5828C93ACE0008ABFC /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		EF4D6CE228D0B6E5008BAE75 /* ImagePixelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePixelData.swift; sourceTree = "<group>"; };
 		EFA3368628AC0DD000276024 /* DetectNumbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectNumbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF408C5528C9363F0008ABFC /* RxSwift.xcframework in Frameworks */,
 				EF4D6CDE28D06BC9008BAE75 /* DetectNumbersCore in Frameworks */,
+				EF2B43572983AE3400DA9369 /* RxSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +79,10 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		EF408C5328C9363F0008ABFC /* Frameworks */ = {
+		EF2B43522983ADFC00DA9369 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EF408C5428C9363F0008ABFC /* RxSwift.xcframework */,
+				EF2B43562983AE3400DA9369 /* RxSwift.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,7 +101,7 @@
 			children = (
 				EFA3368828AC0DD000276024 /* DetectNumbers */,
 				EFA3368728AC0DD000276024 /* Products */,
-				EF408C5328C9363F0008ABFC /* Frameworks */,
+				EF2B43522983ADFC00DA9369 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,7 +151,7 @@
 				EFA3368228AC0DD000276024 /* Sources */,
 				EFA3368328AC0DD000276024 /* Frameworks */,
 				EFA3368428AC0DD000276024 /* Resources */,
-				EF408C5728C9363F0008ABFC /* Embed Frameworks */,
+				EF2B43592983AE3400DA9369 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "detectnumberscore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vodemn/DetectNumbersCore",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9f9051c47c57845bd643b4b4b058020cf71a2344"
+      }
+    }
+  ],
+  "version" : 2
+}
